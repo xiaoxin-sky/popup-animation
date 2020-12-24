@@ -2,6 +2,9 @@
   <div id="app">
     <div ref="btn" class="btn" @click="showPopup"></div>
     <div ref="btn1" class="btn1" @click="showPopup1"></div>
+    <div ref="btn2" class="btn2" @click="showPopup2"></div>
+    <div ref="btn3" class="btn3" @click="showPopup3"></div>
+    <div ref="btn4" class="btn4" @click="showPopup4"></div>
   </div>
 </template>
 
@@ -17,14 +20,32 @@ export default {
   methods: {
     showPopup() {
       this.$pop({
-        msg: "djdj",
+        msg: "提示",
         target: this.$refs.btn
       });
     },
     showPopup1() {
       this.$pop({
-        msg: "djdj",
+        msg: "提示",
         target: this.$refs.btn1
+      });
+    },
+    showPopup2() {
+      this.$pop({
+        msg: "提示",
+        target: this.$refs.btn2
+      });
+    },
+    showPopup3() {
+      this.$pop({
+        msg: "提示",
+        target: this.$refs.btn3
+      });
+    },
+    showPopup4() {
+      this.$pop({
+        msg: "提示",
+        target: this.$refs.btn4
       });
     }
   }
@@ -59,5 +80,25 @@ body {
   background-color: hotpink;
   bottom: 10px;
   right: 10px;
+}
+.btn2 {
+  @include btn();
+  background-color: greenyellow;
+  top: 10px;
+  right: 10px;
+}
+.btn3 {
+  @include btn();
+  background-color: rgb(32, 150, 228);
+  bottom: 10px;
+  left: 10px;
+}
+.btn4 {
+  @include btn();
+  background-color: rgb(140, 32, 228);
+  // bottom: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
