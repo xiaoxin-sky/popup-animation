@@ -9,9 +9,10 @@
 </template>
 
 <script>
-import Vue from "vue";
+/* import Vue from "vue";
 import pop from "./components/popup";
-Vue.prototype.$pop = pop;
+Vue.prototype.$pop = pop; */
+import popup from "popup-animation";
 export default {
   name: "App",
   data() {
@@ -20,8 +21,12 @@ export default {
   methods: {
     showPop(el) {
       console.log(el);
-      this.$pop({
+      /* this.$pop({
         msg: "提示",
+        target: el.srcElement
+      }); */
+      popup({
+        msg: "提示111",
         target: el.srcElement
       });
     }
