@@ -1,24 +1,30 @@
-# popup-animation
+## 介绍
 
-## Project setup
-```
-yarn install
-```
+一个可以从任意位置弹出的 `vue` 命令式组件
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 使用
 
-### Compiles and minifies for production
-```
-yarn build
-```
+**组件内使用**
 
-### Lints and fixes files
-```
-yarn lint
+```js
+import popup from "popup-animation";
+popup({
+  msg: "提示",
+  target: el //需要弹出的位置元素
+})
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**全局使用**
+
+```js
+import Vue from "vue";
+import popup from "./components/popup";
+Vue.prototype.$pop = popup;
+this.popup({
+  msg: "提示",
+  target: el
+});
+```
+
+
+
