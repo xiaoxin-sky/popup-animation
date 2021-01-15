@@ -15,9 +15,16 @@ Vue.prototype.$pop = pop;
 export default {
   name: "App",
   data() {
-    return {};
+    return { showDv: false };
   },
   methods: {
+    showPop(el) {
+      console.log(el);
+      this.$pop({
+        msg: "提示",
+        target: el.srcElement
+      });
+    },
     showPopup() {
       this.$pop({
         msg: "提示",
@@ -59,6 +66,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
 }
 body {
   margin: 0;
