@@ -23,7 +23,6 @@ export default {
   methods: {
     beforeEnter(el) {
       const { x, y } = this.position;
-      console.log(x, y);
       el.style.opacity = 0;
       el.style.left = x + "px";
       el.style.top = y + "px";
@@ -32,15 +31,13 @@ export default {
     enter(el, done) {
       el.offsetWidth;
       const { innerHeight, innerWidth } = window;
-      console.log(innerHeight, innerWidth);
       //初始化弹出位置，从中间弹出
       el.style.opacity = 1;
       el.style.left = innerWidth / 2 + "px";
       el.style.top = innerHeight / 2 + "px";
       el.style.transition = "0.6s cubic-bezier(.61,.59,.63,1.6)";
       el.style.transform = "translate(-50%,-50%) scale(1)";
-      done();
-      // el.addEventListener("transitionend", done);
+      el.addEventListener("transitionend", done);
     },
     getElementCenterPosition(target) {
       const {
