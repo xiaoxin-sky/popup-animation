@@ -12,7 +12,7 @@
 /* import Vue from "vue";
 import pop from "./components/popup";
 Vue.prototype.$pop = pop; */
-import popup from "popup-animation";
+import popup from "../../lib/popup";
 export default {
   name: "App",
   data() {

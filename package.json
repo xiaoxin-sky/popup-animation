@@ -1,8 +1,16 @@
 {
   "name": "popup-animation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:1912820899/popup-animation.git"
+  },
+  "homepage": "https://github.com/1912820899/popup-animation",
+  "bugs": {
+    "url": "https://github.com/1912820899/popup-animation/issues"
+  },
   "author": {
     "name": "lipengze",
     "email": "779931346@qq.com",
