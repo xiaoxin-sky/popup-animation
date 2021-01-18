@@ -26,5 +26,4 @@ this.popup({
 });
 ```
 
-
-
+![示例图片](https://github.com/1912820899/popup-animation/blob/master/example.gif?raw=true)
