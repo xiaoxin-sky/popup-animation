@@ -5,7 +5,9 @@
     v-on:before-enter="beforeEnter"
     v-on:enter="enter"
   >
-    <div v-if="show" class="popup">msg:{{ msg }}</div>
+    <div v-if="show" class="popup">
+      <custom-component />
+    </div>
   </transition>
 </template>
 
