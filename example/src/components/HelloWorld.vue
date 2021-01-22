@@ -22,6 +22,7 @@ export default {
 <style scoped >
 h1 {
   color: v-bind(color);
+  text-align: center;
 }
 h3 {
   margin: 40px 0 0;
