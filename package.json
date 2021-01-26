@@ -1,6 +1,6 @@
 {
   "name": "popup-animation",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "private": false,
   "main": "index.js",
   "repository": {
@@ -18,5 +18,7 @@
   },
   "scripts": {},
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint-plugin-html": "^6.1.1"
+  }
 }

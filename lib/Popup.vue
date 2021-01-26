@@ -1,19 +1,37 @@
 <template>
-  <transition
-    mode="out-in"
-    :css="false"
-    v-on:before-enter="beforeEnter"
-    v-on:enter="enter"
-  >
-    <div v-if="show" class="popup">
-      <custom-component />
-    </div>
-  </transition>
+  <div>
+    <transition
+      mode="out-in"
+      :css="false"
+      v-on:before-enter="beforeEnter"
+      v-on:enter="enter"
+    >
+      <div v-if="show" class="popup">
+        <!-- <custom-component @close="show = false" /> -->
+        <slot></slot>
+        <div class="close" @click="close" v-if="showCloneBtn"></div>
+      </div>
+    </transition>
+    <div class="mask" v-if="show" @touchmove.prevent></div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "myPopup",
+  props: {
+    position: {
+      type: Object,
+    },
+    showCloneBtn: {
+      type: Boolean,
+      default: true,
+    },
+    transition: {
+      default: "0.3s cubic-bezier(.61,.59,.63,1.6)",
+      type: String,
+    },
+  },
   mounted() {
     this.show = true;
   },
@@ -33,11 +51,13 @@ export default {
     enter(el, done) {
       el.offsetWidth;
       const { innerHeight, innerWidth } = window;
-      //初始化弹出位置，从中间弹出
+      // 初始化弹出位置，从中间弹出
       el.style.opacity = 1;
       el.style.left = innerWidth / 2 + "px";
       el.style.top = innerHeight / 2 + "px";
-      el.style.transition = "0.6s cubic-bezier(.61,.59,.63,1.6)";
+      // el.style.transition = '0.3s cubic-bezier(.61,.59,.63,1.6)';
+      el.style.transition = this.transition;
+      // el.style.transition = "0.3s ease-in";
       el.style.transform = "translate(-50%,-50%) scale(1)";
       el.addEventListener("transitionend", done);
     },
@@ -55,16 +75,36 @@ export default {
         y: centerY,
       };
     },
+    // 按钮关闭点击事件
+    close() {
+      this.show = false;
+    },
   },
 };
 </script>
 
 <style scoped>
 .popup {
+  z-index: 10000;
   position: fixed;
-  width: 200px;
-  height: 200px;
-  background-color: green;
+}
+.close {
+  content: "";
+  /* background: url('~@/assets/images/home/popup/guanbi.png') no-repeat; */
+  background-size: 32px;
+  width: 32px;
+  height: 33px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mask {
+  z-index: 9999;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
 }
 .v-enter-active {
   transition-duration: 1s;
