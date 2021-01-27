@@ -36,6 +36,7 @@
       "vue/no-parsing-error": "off"
     }
   },
+  "license": "BSD-3-Clause",
   "browserslist": [
     "> 1%",
     "last 2 versions",

@@ -7,12 +7,10 @@
       v-on:enter="enter"
     >
       <div v-if="show" class="popup">
-        <!-- <custom-component @close="show = false" /> -->
         <slot></slot>
-        <div class="close" @click="close" v-if="showCloneBtn"></div>
       </div>
     </transition>
-    <div class="mask" v-if="show" @touchmove.prevent></div>
+    <div class="mask" v-if="show" @touchmove.prevent @click="close"></div>
   </div>
 </template>
 
@@ -23,7 +21,7 @@ export default {
     position: {
       type: Object,
     },
-    showCloneBtn: {
+    isClose: {
       type: Boolean,
       default: true,
     },
@@ -77,7 +75,9 @@ export default {
     },
     // 按钮关闭点击事件
     close() {
-      this.show = false;
+      if (this.isClose) {
+        this.show = false;
+      }
     },
   },
 };

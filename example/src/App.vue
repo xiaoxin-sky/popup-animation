@@ -11,6 +11,7 @@
       <div class="block-red" ref="popupFrom"></div>
       <div class="float border">
         <h1>从自身弹出</h1>
+        <button @click="closeTest">关闭组件</button>
         <button @click="btnClick1">点击从自身弹出</button>
       </div>
     </div>
@@ -22,6 +23,11 @@ import HelloWorld from "./components/HelloWorld.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      popupEl: null
+    };
+  },
   methods: {
     test() {
       this.popup(HelloWorld, {
@@ -36,10 +42,14 @@ export default {
       });
     },
     btnClick1(el) {
-      this.popup(HelloWorld, {
-        target: el.target
+      this.popupEl = this.popup(HelloWorld, {
+        target: el.target,
+        isClose: true
         // transition: "0.3s ease-in",
       });
+    },
+    closeTest() {
+      this.popupEl.close();
     }
   }
 };
@@ -50,8 +60,8 @@ body {
   padding: 0;
   margin: 0;
 }
-.border{
-  border:1px solid black;
+.border {
+  border: 1px solid black;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
