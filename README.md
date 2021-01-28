@@ -27,7 +27,7 @@ $npm install popup-animation -S
 ### 使用
 
 ```js
-this.popup(component,options);
+this.$popup(component,options);
 ```
 
 ### 参数
@@ -72,7 +72,7 @@ this.popup(component,options);
 	export default {
     methods:{
       test(el){
-        this.popup(this.$refs.h1);
+        this.$popup(this.$refs.h1);
       }
     }
   }

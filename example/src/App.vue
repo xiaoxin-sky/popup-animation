@@ -30,19 +30,19 @@ export default {
   },
   methods: {
     test() {
-      this.popup(HelloWorld, {
+      this.$popup(HelloWorld, {
         target: this.$refs.logbtn
         // transition: "0.3s ease-in",
       });
     },
     btnClick() {
-      this.popup(HelloWorld, {
+      this.$popup(HelloWorld, {
         target: this.$refs.popupFrom
         // transition: "0.3s ease-in",
       });
     },
     btnClick1(el) {
-      this.popupEl = this.popup(HelloWorld, {
+      this.popupEl = this.$popup(HelloWorld, {
         target: el.target,
         isClose: true
         // transition: "0.3s ease-in",
