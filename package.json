@@ -2,7 +2,7 @@
   "name": "popup-animation",
   "version": "0.2.6",
   "private": false,
-  "main": "index.js",
+  "main": "dist/popup.min.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:1912820899/popup-animation.git"
@@ -17,7 +17,8 @@
     "url": "http://www.9cka.cn"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {},
   "devDependencies": {

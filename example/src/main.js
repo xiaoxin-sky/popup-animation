@@ -1,6 +1,6 @@
 import Vue from "vue";
 import App from "./App.vue";
-import Pupup from "../../lib/popup.js";
+import Pupup from "popup-animation";
 Vue.use(Pupup);
 
 Vue.config.productionTip = false;
